@@ -1,7 +1,15 @@
+
+cluster:
+  name: app
+  region: ams2 # digital ocean 
+  type: 512mb
+  nodes: 1
+
 services:
 - name: db
   image: mongodb
   containers: 1
+
 - name: web
   image: user/web
   build: web
