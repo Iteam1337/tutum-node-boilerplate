@@ -1,0 +1,18 @@
+services:
+- name: db
+  image: mongodb
+  containers: 1
+- name: web
+  image: user/web
+  build: web
+  containers: 1
+  ports:
+    - guest: 80
+      host: 80
+      name: http
+      protocol: tcp
+      published: true
+  env:
+    - PORT: 80
+  require: # Links. 
+    - db
