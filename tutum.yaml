@@ -6,12 +6,12 @@ cluster:
   nodes: 1
 
 services:
-- name: db
+- name: mongodb
   image: mongodb
   containers: 1
 
 - name: web
-  image: user/web
+  image: iteamdev/tutum-boilerplate-web
   build: web
   containers: 1
   ports:
@@ -22,5 +22,6 @@ services:
       published: true
   env:
     - PORT: 80
+    - MONGO_URL: mongodb://mongodb/test
   require: # Links. 
-    - db
+    - mongodb
