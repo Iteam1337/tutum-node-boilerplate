@@ -1,10 +1,13 @@
 'use strict';
 
 var express = require('express');
-var db = require('mongojs')(process.env.MONGO_URL || 'mongodb://192.168.59.103/test');
+var db = require('mongojs')(process.env.MONGO_URL || 'mongodb://mongodb/test');
 var log = db.collection('log');
-
 var app = express();
+
+/**
+ * Just save some data to mongodb for the fun of it
+ */
 app.get('/', function(req, res){
 
   log.save({date: new Date(), host: req.host });
