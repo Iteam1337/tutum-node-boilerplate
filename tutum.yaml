@@ -11,7 +11,7 @@ services:
   containers: 1
 
 - name: web
-  image: iteamdev/tutum-boilerplate-web
+  image: iteamdev/tutum-web
   build: web
   containers: 1
   ports:
